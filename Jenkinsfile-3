@@ -1,0 +1,15 @@
+pipeline {
+    agent {
+        label 'dockerslave'
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh '''
+                pwd
+                ipconfig
+                '''
+            }
+        }
+    }
+}
