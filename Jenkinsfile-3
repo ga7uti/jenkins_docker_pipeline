@@ -1,15 +1,14 @@
 pipeline {
-    agent {
-        label 'dockerslave'
+  agent { dockerfile true }
+  stages {
+    stage('Test') {
+      steps {
+        sh '''
+          node --version
+          git --version
+          curl --version
+        '''
+      }
     }
-    stages {
-        stage('Test') {
-            steps {
-                sh '''
-                pwd
-                ipconfig
-                '''
-            }
-        }
-    }
+  }
 }
